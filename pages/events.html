@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-en="Events | XPLAN" data-ar="الفعاليات | اكسبلان">Events | XPLAN</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="language-switcher">
+        <button class="language-btn active" onclick="switchLanguage('en')" aria-label="Switch to English">EN</button>
+        <button class="language-btn" onclick="switchLanguage('ar')" aria-label="Switch to Arabic">ع</button>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-brand">
+            <img src="../assets/XPLANN.png" alt="XPLAN Logo" class="animated-logo">
+            <h1 data-en="XPLAN" data-ar="اكسبلان">XPLAN</h1>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="nav-links">
+            <a href="../index.html" class="nav-link"><i class="fas fa-home"></i> <span data-en="Home" data-ar="الرئيسية">Home</span></a>
+            <a href="events.html" class="nav-link active"><i class="fas fa-calendar"></i> <span data-en="Events" data-ar="الفعاليات">Events</span></a>
+            <a href="venues.html" class="nav-link"><i class="fas fa-map-location-dot"></i> <span data-en="Venues" data-ar="الأماكن">Venues</span></a>
+            <a href="activities.html" class="nav-link"><i class="fas fa-hiking"></i> <span data-en="Activities" data-ar="الأنشطة">Activities</span></a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="hero-section">
+            <img src="../assets/cairo.  _عمرك مشيت على ضفاف النيل تحت النجوم؟ مين تحب تاخد معاك وتستكشف القاهرة؟ 🌟  _📍 القاهرة__.jpeg" alt="Cairo Events" class="hero-image">
+            <div class="hero-overlay">
+                <div class="hero-content">
+                    <h1 data-en="Discover Cairo's Hottest Events" data-ar="اكتشف أهم فعاليات القاهرة">Discover Cairo's Hottest Events</h1>
+                    <p data-en="Find and book amazing experiences" data-ar="ابحث واحجز تجارب مذهلة">Find and book amazing experiences</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="filters-container">
+            <div class="search-bar">
+                <input type="text" id="searchEvents" data-placeholder-en="Search events..." data-placeholder-ar="ابحث عن الفعاليات" placeholder="Search events..." onkeyup="filterEvents()">
+                <button class="btn-primary" aria-label="Search events">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="filter-tags">
+                <button class="filter-btn active" data-filter="all">
+                    <span data-en="All Events" data-ar="كل الفعاليات">All Events</span>
+                </button>
+                <button class="filter-btn" data-filter="party">
+                    <i class="fas fa-cocktail"></i> <span data-en="Parties" data-ar="حفلات">Parties</span>
+                </button>
+                <button class="filter-btn" data-filter="culture">
+                    <i class="fas fa-landmark"></i> <span data-en="Cultural" data-ar="ثقافي">Cultural</span>
+                </button>
+                <button class="filter-btn" data-filter="food">
+                    <i class="fas fa-utensils"></i> <span data-en="Food & Dining" data-ar="طعام">Food & Dining</span>
+                </button>
+                <button class="filter-btn" data-filter="music">
+                    <i class="fas fa-music"></i> <span data-en="Music" data-ar="موسيقى">Music</span>
+                </button>
+            </div>
+            <div class="filter-options">
+                <select id="priceFilter" onchange="filterEvents()" aria-label="Filter by price range">
+                    <option value="all">All Prices</option>
+                    <option value="0-200">Under 200 EGP</option>
+                    <option value="200-500">200-500 EGP</option>
+                    <option value="500+">500+ EGP</option>
+                </select>
+                <select id="dateFilter" onchange="filterEvents()" aria-label="Filter by date">
+                    <option value="all">All Dates</option>
+                    <option value="today">Today</option>
+                    <option value="week">This Week</option>
+                    <option value="month">This Month</option>
+                </select>
+            </div>
+        </div>
+
+        <section class="events-section">
+            <h2 class="section-title" data-en="Featured Events" data-ar="الفعاليات المميزة">Featured Events</h2>
+            <div class="events-grid">
+                <!-- Nile Cruise Party -->
+                <div class="event-card" data-category="party">
+                    <div class="venue-image">
+                        <img src="../assets/cairo.  _عمرك مشيت على ضفاف النيل تحت النجوم؟ مين تحب تاخد معاك وتستكشف القاهرة؟ 🌟  _📍 القاهرة__.jpeg" alt="Nile Cruise Party">
+                        <div class="venue-rating">4.9</div>
+                    </div>
+                    <div class="venue-content">
+                        <h3 data-en="Nile Cruise Party Night" data-ar="حفلة العشاء النيلية">Nile Cruise Party Night</h3>
+                        <p class="venue-type">
+                            <i class="fas fa-cocktail"></i> 
+                            <span data-en="Party" data-ar="حفلة">Party</span>
+                        </p>
+                        <p class="venue-description" data-en="Experience an unforgettable night on the Nile with dinner, music, and dancing" data-ar="استمتع بليلة لا تُنسى على النيل مع العشاء والموسيقى والرقص">
+                            Experience an unforgettable night on the Nile with dinner, music, and dancing
+                        </p>
+                        <div class="venue-details">
+                            <span><i class="fas fa-clock"></i> 8 PM - 2 AM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Nile River - نهر النيل</span>
+                            <span class="price-indicator high">$$$</span>
+                        </div>
+                        <div class="venue-features">
+                            <span><i class="fas fa-utensils"></i> Dinner - عشاء</span>
+                            <span><i class="fas fa-music"></i> Live Music - موسيقى حية</span>
+                            <span><i class="fas fa-glass-cheers"></i> Open Bar - مشروبات</span>
+                        </div>
+                        <div class="button-container">
+                            <button class="btn-primary">
+                                <span data-en="Book Now" data-ar="احجز الآن">Book Now</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cairo Tower Night -->
+                <div class="event-card" data-category="culture">
+                    <div class="venue-image">
+                        <img src="../assets/Cairo tower.jpeg" alt="Cairo Tower">
+                        <div class="venue-rating">4.8</div>
+                    </div>
+                    <div class="venue-content">
+                        <h3 data-en="Cairo Tower Night Experience" data-ar="تجربة برج القاهرة الليلية">Cairo Tower Night Experience</h3>
+                        <p class="venue-type">
+                            <i class="fas fa-landmark"></i> 
+                            <span data-en="Cultural" data-ar="ثقافي">Cultural</span>
+                        </p>
+                        <p class="venue-description" data-en="Enjoy dinner with panoramic views of Cairo at night" data-ar="استمتع بالعشاء مع إطلالات بانورامية على القاهرة ليلاً">
+                            Enjoy dinner with panoramic views of Cairo at night
+                        </p>
+                        <div class="venue-details">
+                            <span><i class="fas fa-clock"></i> 7 PM - 11 PM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Cairo Tower - برج القاهرة</span>
+                            <span class="price-indicator medium">$$</span>
+                        </div>
+                        <div class="venue-features">
+                            <span><i class="fas fa-utensils"></i> Fine Dining - مطعم فاخر</span>
+                            <span><i class="fas fa-camera"></i> Photo Spots - أماكن للتصوير</span>
+                            <span><i class="fas fa-star"></i> VIP Service - خدمة VIP</span>
+                        </div>
+                        <div class="button-container">
+                            <button class="btn-primary">
+                                <span data-en="Reserve Now" data-ar="احجز الآن">Reserve Now</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Luxury Gala -->
+                <div class="event-card" data-category="party">
+                    <div class="venue-image">
+                        <img src="../assets/Conrad Hotel Main Entrance.jpeg" alt="Luxury Gala">
+                        <div class="venue-rating">4.9</div>
+                    </div>
+                    <div class="venue-content">
+                        <h3 data-en="Luxury Gala Night" data-ar="حفل الجالا الفاخر">Luxury Gala Night</h3>
+                        <p class="venue-type">
+                            <i class="fas fa-gem"></i> 
+                            <span data-en="Exclusive" data-ar="حصري">Exclusive</span>
+                        </p>
+                        <p class="venue-description" data-en="An exclusive evening of luxury, entertainment, and fine dining" data-ar="أمسية حصرية من الرفاهية والترفيه والطعام الفاخر">
+                            An exclusive evening of luxury, entertainment, and fine dining
+                        </p>
+                        <div class="venue-details">
+                            <span><i class="fas fa-clock"></i> 7 PM - 1 AM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Conrad Hotel - فندق كونراد</span>
+                            <span class="price-indicator high">$$$</span>
+                        </div>
+                        <div class="venue-features">
+                            <span><i class="fas fa-glass-martini"></i> Premium Bar - بار فاخر</span>
+                            <span><i class="fas fa-music"></i> Live Band - فرقة موسيقية</span>
+                            <span><i class="fas fa-concierge-bell"></i> VIP Tables - طاولات VIP</span>
+                        </div>
+                        <div class="button-container">
+                            <button class="btn-primary">
+                                <span data-en="Book VIP" data-ar="احجز VIP">Book VIP</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="activities-section">
+            <h2 class="section-title">Popular Activities</h2>
+            <div class="activities-grid">
+                <!-- Desert Safari Activity -->
+                <div class="activity-card" data-category="adventure">
+                    <div class="venue-image">
+                        <img src="../assets/tour-white-desert-safari.jpg" alt="Desert Safari">
+                        <div class="venue-rating">4.8</div>
+                    </div>
+                    <div class="activity-content">
+                        <h3 data-en="White Desert Safari" data-ar="سفاري الصحراء البيضاء">White Desert Safari</h3>
+                        <p class="venue-type">
+                            <i class="fas fa-desert"></i> 
+                            <span data-en="Adventure" data-ar="مغامرة">Adventure</span>
+                        </p>
+                        <p class="venue-description" data-en="Experience the magical white desert with camping and stargazing" data-ar="استمتع بسحر الصحراء البيضاء مع التخييم ومشاهدة النجوم">
+                            Experience the magical white desert with camping and stargazing
+                        </p>
+                        <div class="venue-details">
+                            <span><i class="fas fa-clock"></i> 2 Days</span>
+                            <span><i class="fas fa-users"></i> Min 4 people</span>
+                            <span class="price-indicator high">$$$</span>
+                        </div>
+                        <div class="venue-features">
+                            <span><i class="fas fa-campground"></i> Camping - تخييم</span>
+                            <span><i class="fas fa-car"></i> 4x4 Safari - سفاري</span>
+                            <span><i class="fas fa-utensils"></i> Meals Included - وجبات</span>
+                        </div>
+                        <div class="button-container">
+                            <button class="btn-primary">
+                                <span data-en="Book Adventure" data-ar="احجز المغامرة">Book Adventure</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pyramids Tour Activity -->
+                <div class="activity-card" data-category="culture">
+                    <div class="venue-image">
+                        <img src="../assets/900x600-1-50-9880a15d4e0b0c66dc9f19690958fc4b.jpg" alt="Pyramids Tour">
+                        <div class="venue-rating">4.9</div>
+                    </div>
+                    <div class="activity-content">
+                        <h3 data-en="Pyramids & Sphinx Tour" data-ar="جولة الأهرامات وأبو الهول">Pyramids & Sphinx Tour</h3>
+                        <p class="venue-type">
+                            <i class="fas fa-landmark"></i> 
+                            <span data-en="Cultural Tour" data-ar="جولة ثقافية">Cultural Tour</span>
+                        </p>
+                        <p class="venue-description" data-en="Explore the ancient wonders of Egypt with expert guides" data-ar="اكتشف عجائب مصر القديمة مع مرشدين خبراء">
+                            Explore the ancient wonders of Egypt with expert guides
+                        </p>
+                        <div class="venue-details">
+                            <span><i class="fas fa-clock"></i> 6 Hours</span>
+                            <span><i class="fas fa-users"></i> Private Tour</span>
+                            <span class="price-indicator medium">$$</span>
+                        </div>
+                        <div class="venue-features">
+                            <span><i class="fas fa-user-tie"></i> Expert Guide - مرشد خبير</span>
+                            <span><i class="fas fa-camera"></i> Photo Stops - مواقع التصوير</span>
+                            <span><i class="fas fa-car"></i> Transport - المواصلات</span>
+                        </div>
+                        <div class="button-container">
+                            <button class="btn-primary">
+                                <span data-en="Book Tour" data-ar="احجز الجولة">Book Tour</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nile Dinner Cruise -->
+                <div class="activity-card" data-category="dining">
+                    <div class="venue-image">
+                        <img src="../assets/5.jpg" alt="Nile Dinner Cruise">
+                        <div class="venue-rating">4.7</div>
+                    </div>
+                    <div class="activity-content">
+                        <h3 data-en="Luxury Nile Dinner Cruise" data-ar="عشاء فاخر على النيل">Luxury Nile Dinner Cruise</h3>
+                        <p class="venue-type">
+                            <i class="fas fa-utensils"></i> 
+                            <span data-en="Fine Dining" data-ar="مطعم فاخر">Fine Dining</span>
+                        </p>
+                        <p class="venue-description" data-en="Elegant dinner cruise with entertainment and city views" data-ar="رحلة عشاء أنيقة مع عروض ترفيهية ومناظر المدينة">
+                            Elegant dinner cruise with entertainment and city views
+                        </p>
+                        <div class="venue-details">
+                            <span><i class="fas fa-clock"></i> 3 Hours</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Nile River</span>
+                            <span class="price-indicator high">$$$</span>
+                        </div>
+                        <div class="venue-features">
+                            <span><i class="fas fa-utensils"></i> Gourmet Dinner - عشاء فاخر</span>
+                            <span><i class="fas fa-music"></i> Live Show - عرض حي</span>
+                            <span><i class="fas fa-glass-cheers"></i> Welcome Drink - مشروب ترحيبي</span>
+                        </div>
+                        <div class="button-container">
+                            <button class="btn-primary">
+                                <span data-en="Reserve Now" data-ar="احجز الآن">Reserve Now</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arkan Plaza Mall -->
+                <div class="activity-card" data-category="shopping">
+                    <div class="venue-image">
+                        <img src="../assets/download.jpeg" alt="Arkan Plaza Mall">
+                        <div class="venue-rating">4.6</div>
+                    </div>
+                    <div class="activity-content">
+                        <h3 data-en="Arkan Plaza Mall" data-ar="أركان بلازا مول">Arkan Plaza Mall</h3>
+                        <p class="venue-type">
+                            <i class="fas fa-shopping-bag"></i> 
+                            <span data-en="Shopping & Entertainment" data-ar="تسوق وترفيه">Shopping & Entertainment</span>
+                        </p>
+                        <p class="venue-description" data-en="Modern lifestyle destination with premium shopping, dining, and entertainment" data-ar="وجهة عصرية للتسوق والمطاعم والترفيه">
+                            Modern lifestyle destination with premium shopping, dining, and entertainment
+                        </p>
+                        <div class="venue-details">
+                            <span><i class="fas fa-clock"></i> 10 AM - 12 AM</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Sheikh Zayed</span>
+                            <span class="price-indicator medium">$$</span>
+                        </div>
+                        <div class="venue-features">
+                            <span><i class="fas fa-store"></i> Premium Brands - ماركات عالمية</span>
+                            <span><i class="fas fa-utensils"></i> Restaurants - مطاعم</span>
+                            <span><i class="fas fa-parking"></i> Free Parking - موقف مجاني</span>
+                        </div>
+                        <div class="button-container">
+                            <button class="btn-primary">
+                                <span data-en="Explore Mall" data-ar="استكشف المول">Explore Mall</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+
+        function switchLanguage(lang) {
+            document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+            document.documentElement.setAttribute('lang', lang);
+            
+            // Update all translatable elements
+            document.querySelectorAll('[data-' + lang + ']').forEach(element => {
+                if (element.tagName === 'INPUT') {
+                    element.placeholder = element.getAttribute('data-placeholder-' + lang);
+                } else {
+                    element.textContent = element.getAttribute('data-' + lang);
+                }
+            });
+
+            // Update active state of language buttons
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase() === (lang === 'ar' ? 'ع' : 'en')) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Update document title
+            document.title = document.querySelector('title').getAttribute('data-' + lang);
+        }
+
+        function filterEvents() {
+            const searchText = document.getElementById('searchEvents').value.toLowerCase();
+            const priceFilter = document.getElementById('priceFilter').value;
+            const dateFilter = document.getElementById('dateFilter').value;
+            const activeCategory = document.querySelector('.filter-btn.active').dataset.filter;
+
+            document.querySelectorAll('.event-card').forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const category = card.dataset.category;
+                const price = parseInt(card.dataset.price);
+                
+                let showCard = true;
+
+                if (!title.includes(searchText)) showCard = false;
+                if (activeCategory !== 'all' && category !== activeCategory) showCard = false;
+                if (priceFilter !== 'all') {
+                    const [min, max] = priceFilter.split('-').map(p => p.replace('+', '9999'));
+                    if (price < parseInt(min) || price > parseInt(max)) showCard = false;
+                }
+
+                if (showCard) {
+                    card.style.display = 'block';
+                    setTimeout(() => card.style.opacity = '1', 10);
+                } else {
+                    card.style.opacity = '0';
+                    setTimeout(() => card.style.display = 'none', 300);
+                }
+            });
+        }
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                filterEvents();
+            });
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.event-card').forEach(card => {
+            observer.observe(card);
+            card.classList.add('fade-ready');
+        });
+    </script>
+</body>
+</html> 

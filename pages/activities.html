@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cairo Activities - XPLAN</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="language-switcher">
+        <button class="language-btn active" onclick="switchLanguage('en')" aria-label="Switch to English">EN</button>
+        <button class="language-btn" onclick="switchLanguage('ar')" aria-label="Switch to Arabic">ع</button>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-brand">
+            <img src="../assets/XPLANN.png" alt="XPLAN Logo" class="animated-logo">
+            <h1>XPLAN - اكسبلان</h1>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="nav-links">
+            <a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Home - الرئيسية</a>
+            <a href="events.html" class="nav-link"><i class="fas fa-calendar"></i> Events - الفعاليات</a>
+            <a href="venues.html" class="nav-link"><i class="fas fa-map-location-dot"></i> Venues - الأماكن</a>
+            <a href="activities.html" class="nav-link active"><i class="fas fa-hiking"></i> Activities - الأنشطة</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="hero-section">
+            <img src="../assets/cairo.  _عمرك مشيت على ضفاف النيل تحت النجوم؟ مين تحب تاخد معاك وتستكشف القاهرة؟ 🌟  _📍 القاهرة__.jpeg" alt="Cairo Activities" class="hero-image">
+            <div class="hero-overlay">
+                <div class="hero-content">
+                    <h1>Explore Cairo Activities - استكشف أنشطة القاهرة</h1>
+                    <p>Discover exciting activities and adventures - اكتشف الأنشطة والمغامرات المثيرة</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="filters-container">
+            <div class="search-bar">
+                <input type="text" id="searchActivities" placeholder="Search activities... - ابحث عن الأنشطة" onkeyup="filterActivities()">
+                <button class="btn-primary" aria-label="Search activities">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                    <span class="sr-only">Search</span>
+                </button>
+            </div>
+            <div class="filter-tags">
+                <button class="filter-btn active" data-filter="all">All Activities - كل الأنشطة</button>
+                <button class="filter-btn" data-filter="sports">
+                    <i class="fas fa-basketball-ball" aria-hidden="true"></i> Sports - الرياضة
+                </button>
+                <button class="filter-btn" data-filter="entertainment">
+                    <i class="fas fa-gamepad" aria-hidden="true"></i> Entertainment - الترفيه
+                </button>
+                <button class="filter-btn" data-filter="adventure">
+                    <i class="fas fa-mountain" aria-hidden="true"></i> Adventure - المغامرات
+                </button>
+                <button class="filter-btn" data-filter="shopping">
+                    <i class="fas fa-shopping-bag" aria-hidden="true"></i> Shopping - التسوق
+                </button>
+            </div>
+        </div>
+
+        <section class="activities-section">
+            <h2 class="section-title">Popular Activities - الأنشطة الشعبية</h2>
+            <div class="activities-grid">
+                <!-- Bowling -->
+                <div class="activity-card" data-category="entertainment">
+                    <div class="venue-image">
+                        <img src="../assets/download.jpeg" alt="Bowling">
+                        <div class="venue-rating">4.8</div>
+                    </div>
+                    <div class="venue-content">
+                        <h3>Cairo Bowling Center - مركز البولينج</h3>
+                        <p class="venue-type"><i class="fas fa-bowling-ball"></i> Entertainment - ترفيه</p>
+                        <p class="venue-description">Professional bowling lanes with arcade games - حارات بولينج احترافية مع ألعاب الأركيد</p>
+                        <div class="venue-details">
+                            <span><i class="fas fa-clock" aria-hidden="true"></i> 10 AM - 2 AM</span>
+                            <span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Heliopolis - مصر الجديدة</span>
+                            <span class="price-indicator medium">$$</span>
+                        </div>
+                        <div class="venue-features">
+                            <span><i class="fas fa-bowling-ball"></i> 12 Lanes</span>
+                            <span><i class="fas fa-gamepad"></i> Arcade</span>
+                            <span><i class="fas fa-utensils"></i> Snack Bar</span>
+                        </div>
+                        <div class="button-container">
+                            <button class="btn-primary">
+                                <span>Book Now - احجز الآن</span>
+                                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Billiards -->
+                <div class="activity-card" data-category="entertainment">
+                    <div class="venue-image">
+                        <img src="../assets/Cairo tower.jpeg" alt="Billiards">
+                        <div class="venue-rating">4.6</div>
+                    </div>
+                    <div class="venue-content">
+                        <h3>Elite Billiards Club - نادي البلياردو النخبة</h3>
+                        <p class="venue-type"><i class="fas fa-circle"></i> Entertainment - ترفيه</p>
+                        <p class="venue-description">Professional billiards and snooker tables - طاولات بلياردو وسنوكر احترافية</p>
+                        <div class="venue-details">
+                            <span><i class="fas fa-clock" aria-hidden="true"></i> 12 PM - 12 AM</span>
+                            <span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Downtown - وسط البلد</span>
+                            <span class="price-indicator low">$</span>
+                        </div>
+                        <div class="venue-features">
+                            <span><i class="fas fa-table"></i> 8 Tables</span>
+                            <span><i class="fas fa-coffee"></i> Cafe</span>
+                            <span><i class="fas fa-wifi"></i> Free WiFi</span>
+                        </div>
+                        <div class="button-container">
+                            <button class="btn-primary">
+                                <span>Book Now - احجز الآن</span>
+                                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shopping Mall -->
+                <div class="activity-card" data-category="shopping">
+                    <div class="venue-image">
+                        <img src="../assets/Conrad Hotel Main Entrance.jpeg" alt="Shopping Mall">
+                        <div class="venue-rating">4.9</div>
+                    </div>
+                    <div class="venue-content">
+                        <h3>Cairo Premium Outlets - آوتلت القاهرة</h3>
+                        <p class="venue-type"><i class="fas fa-shopping-bag"></i> Shopping - تسوق</p>
+                        <p class="venue-description">Premium shopping experience with international brands - تجربة تسوق راقية مع ماركات عالمية</p>
+                        <div class="venue-details">
+                            <span><i class="fas fa-clock" aria-hidden="true"></i> 10 AM - 11 PM</span>
+                            <span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> New Cairo - القاهرة الجديدة</span>
+                            <span class="price-indicator high">$$$</span>
+                        </div>
+                        <div class="venue-features">
+                            <span><i class="fas fa-store"></i> 200+ Stores</span>
+                            <span><i class="fas fa-utensils"></i> Food Court</span>
+                            <span><i class="fas fa-parking"></i> Free Parking</span>
+                        </div>
+                        <div class="button-container">
+                            <button class="btn-primary">
+                                <span>View Stores - عرض المتاجر</span>
+                                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+
+        function switchLanguage(lang) {
+            document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+            document.documentElement.setAttribute('lang', lang);
+            
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase() === (lang === 'ar' ? 'ع' : 'en')) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        function filterActivities() {
+            const searchText = document.getElementById('searchActivities').value.toLowerCase();
+            const activeCategory = document.querySelector('.filter-btn.active').dataset.filter;
+
+            document.querySelectorAll('.activity-card').forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const category = card.dataset.category;
+                
+                let showCard = true;
+
+                if (!title.includes(searchText)) showCard = false;
+                if (activeCategory !== 'all' && category !== activeCategory) showCard = false;
+
+                if (showCard) {
+                    card.style.display = 'block';
+                    setTimeout(() => card.style.opacity = '1', 10);
+                } else {
+                    card.style.opacity = '0';
+                    setTimeout(() => card.style.display = 'none', 300);
+                }
+            });
+        }
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                filterActivities();
+            });
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.activity-card').forEach(card => {
+            observer.observe(card);
+            card.classList.add('fade-ready');
+        });
+    </script>
+</body>
+</html> 

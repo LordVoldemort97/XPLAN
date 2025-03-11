@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venues - الأماكن | XPLAN - اكسبلان</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="language-switcher">
+        <button class="language-btn active" onclick="switchLanguage('en')" aria-label="Switch to English">EN</button>
+        <button class="language-btn" onclick="switchLanguage('ar')" aria-label="Switch to Arabic">ع</button>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-brand">
+            <img src="../assets/XPLANN.png" alt="XPLAN Logo" class="animated-logo">
+            <h1>XPLAN - اكسبلان</h1>
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="nav-links">
+            <a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Home - الرئيسية</a>
+            <a href="events.html" class="nav-link"><i class="fas fa-calendar"></i> Events - الفعاليات</a>
+            <a href="venues.html" class="nav-link active"><i class="fas fa-map-location-dot"></i> Venues - الأماكن</a>
+            <a href="activities.html" class="nav-link"><i class="fas fa-hiking"></i> Activities - الأنشطة</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="hero-section">
+            <img src="../assets/Conrad Hotel Main Entrance.jpeg" alt="Cairo Venues" class="hero-image">
+            <div class="hero-overlay">
+                <div class="hero-content">
+                    <h1>Discover Cairo's Best Venues - اكتشف أفضل أماكن القاهرة</h1>
+                    <p>Find the perfect location for your next event - اعثر على المكان المثالي لفعاليتك القادمة</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="filters-container">
+            <div class="search-bar">
+                <input type="text" id="searchVenues" placeholder="Search venues... - ابحث عن الأماكن" onkeyup="filterVenues()">
+                <button class="btn-primary" aria-label="Search venues">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="filter-tags">
+                <button class="filter-btn active" data-filter="all">All Venues - كل الأماكن</button>
+                <button class="filter-btn" data-filter="hotels">
+                    <i class="fas fa-hotel"></i> Hotels - فنادق
+                </button>
+                <button class="filter-btn" data-filter="restaurants">
+                    <i class="fas fa-utensils"></i> Restaurants - مطاعم
+                </button>
+                <button class="filter-btn" data-filter="cafes">
+                    <i class="fas fa-coffee"></i> Cafes - مقاهي
+                </button>
+                <button class="filter-btn" data-filter="entertainment">
+                    <i class="fas fa-ticket-alt"></i> Entertainment - ترفيه
+                </button>
+            </div>
+            <div class="filter-options">
+                <select id="areaFilter" onchange="filterVenues()" aria-label="Filter venues by area">
+                    <option value="all">All Areas - كل المناطق</option>
+                    <option value="downtown">Downtown - وسط البلد</option>
+                    <option value="heliopolis">Heliopolis - مصر الجديدة</option>
+                    <option value="maadi">Maadi - المعادي</option>
+                    <option value="zamalek">Zamalek - الزمالك</option>
+                </select>
+                <select id="priceFilter" onchange="filterVenues()" aria-label="Filter venues by price range">
+                    <option value="all">All Prices - كل الأسعار</option>
+                    <option value="low">Budget $ - اقتصادي</option>
+                    <option value="medium">Moderate $$ - متوسط</option>
+                    <option value="high">Luxury $$$ - فاخر</option>
+                </select>
+            </div>
+        </div>
+
+        <section class="venues-section">
+            <h2 class="section-title">Popular Venues - الأماكن المميزة</h2>
+            <div class="venues-grid">
+                <!-- Conrad Hotel -->
+                <div class="venue-card" data-category="hotels">
+                    <div class="venue-image">
+                        <img src="../assets/Conrad Hotel Main Entrance.jpeg" alt="Conrad Hotel">
+                        <div class="venue-rating">4.9</div>
+                    </div>
+                    <div class="venue-content">
+                        <h3>Conrad Cairo Hotel - فندق كونراد القاهرة</h3>
+                        <p class="venue-type"><i class="fas fa-hotel"></i> Luxury Hotel - فندق فاخر</p>
+                        <p class="venue-description">5-star luxury hotel with stunning Nile views - فندق 5 نجوم مع إطلالات خلابة على النيل</p>
+                        <div class="venue-details">
+                            <span><i class="fas fa-map-marker-alt"></i> Garden City - جاردن سيتي</span>
+                            <span><i class="fas fa-phone"></i> +20 2 25808000</span>
+                            <span class="price-indicator high">$$$</span>
+                        </div>
+                        <div class="venue-features">
+                            <span><i class="fas fa-swimming-pool"></i> Pool - مسبح</span>
+                            <span><i class="fas fa-spa"></i> Spa - سبا</span>
+                            <span><i class="fas fa-wifi"></i> Free WiFi - واي فاي مجاني</span>
+                            <span><i class="fas fa-parking"></i> Valet - خدمة صف السيارات</span>
+                        </div>
+                        <div class="button-container">
+                            <button class="btn-primary">
+                                <span>Book Now - احجز الآن</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cairo Tower Restaurant -->
+                <div class="venue-card" data-category="restaurants">
+                    <div class="venue-image">
+                        <img src="../assets/Cairo tower.jpeg" alt="Cairo Tower Restaurant">
+                        <div class="venue-rating">4.8</div>
+                    </div>
+                    <div class="venue-content">
+                        <h3>Cairo Tower Restaurant - مطعم برج القاهرة</h3>
+                        <p class="venue-type"><i class="fas fa-utensils"></i> Fine Dining - مطعم فاخر</p>
+                        <p class="venue-description">Revolving restaurant with panoramic city views - مطعم دوار مع إطلالات بانورامية على المدينة</p>
+                        <div class="venue-details">
+                            <span><i class="fas fa-map-marker-alt"></i> Zamalek - الزمالك</span>
+                            <span><i class="fas fa-clock"></i> 9 AM - 12 AM</span>
+                            <span class="price-indicator medium">$$</span>
+                        </div>
+                        <div class="venue-features">
+                            <span><i class="fas fa-camera"></i> View - إطلالة</span>
+                            <span><i class="fas fa-glass-martini"></i> Bar - بار</span>
+                            <span><i class="fas fa-parking"></i> Parking - موقف سيارات</span>
+                        </div>
+                        <div class="button-container">
+                            <button class="btn-primary">
+                                <span>Reserve Table - احجز طاولة</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nile View Cafe -->
+                <div class="venue-card" data-category="cafes">
+                    <div class="venue-image">
+                        <img src="../assets/cairo.  _عمرك مشيت على ضفاف النيل تحت النجوم؟ مين تحب تاخد معاك وتستكشف القاهرة؟ 🌟  _📍 القاهرة__.jpeg" alt="Nile View Cafe">
+                        <div class="venue-rating">4.7</div>
+                    </div>
+                    <div class="venue-content">
+                        <h3>Nile View Cafe - كافيه إطلالة النيل</h3>
+                        <p class="venue-type"><i class="fas fa-coffee"></i> Cafe - مقهى</p>
+                        <p class="venue-description">Cozy cafe with stunning Nile views - مقهى دافئ مع إطلالات رائعة على النيل</p>
+                        <div class="venue-details">
+                            <span><i class="fas fa-map-marker-alt"></i> Maadi - المعادي</span>
+                            <span><i class="fas fa-clock"></i> 10 AM - 2 AM</span>
+                            <span class="price-indicator low">$</span>
+                        </div>
+                        <div class="venue-features">
+                            <span><i class="fas fa-wifi"></i> Free WiFi - واي فاي مجاني</span>
+                            <span><i class="fas fa-smoking"></i> Shisha - شيشة</span>
+                            <span><i class="fas fa-coffee"></i> Specialty Coffee - قهوة مختصة</span>
+                        </div>
+                        <div class="button-container">
+                            <button class="btn-primary">
+                                <span>View Menu - عرض القائمة</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        }
+
+        function switchLanguage(lang) {
+            document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+            document.documentElement.setAttribute('lang', lang);
+            
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent.toLowerCase() === (lang === 'ar' ? 'ع' : 'en')) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        function filterVenues() {
+            const searchText = document.getElementById('searchVenues').value.toLowerCase();
+            const activeCategory = document.querySelector('.filter-btn.active').dataset.filter;
+            const selectedArea = document.getElementById('areaFilter').value;
+            const selectedPrice = document.getElementById('priceFilter').value;
+
+            document.querySelectorAll('.venue-card').forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const category = card.dataset.category;
+                const area = card.querySelector('.venue-details').textContent.toLowerCase();
+                const price = card.querySelector('.price-indicator').classList[1];
+                
+                let showCard = true;
+
+                if (!title.includes(searchText)) showCard = false;
+                if (activeCategory !== 'all' && category !== activeCategory) showCard = false;
+                if (selectedArea !== 'all' && !area.includes(selectedArea)) showCard = false;
+                if (selectedPrice !== 'all' && price !== selectedPrice) showCard = false;
+
+                if (showCard) {
+                    card.style.display = 'block';
+                    setTimeout(() => card.style.opacity = '1', 10);
+                } else {
+                    card.style.opacity = '0';
+                    setTimeout(() => card.style.display = 'none', 300);
+                }
+            });
+        }
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                filterVenues();
+            });
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.venue-card').forEach(card => {
+            observer.observe(card);
+            card.classList.add('fade-ready');
+        });
+    </script>
+</body>
+</html> 
